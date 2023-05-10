@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Convo-Sense</title>
+	<style type="text/css">
+		body {
+			margin: 0;
+			padding: 0;
+			background-color: #f1f1f1;
+		}
+		.prompt{
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			align-items: center;
+			margin-top: 25vh;
+		}
+		.container {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			align-items: center;
+			height: 40vh;
+		}
+
+		.box {
+			width: 200px;
+			height: 200px;
+			margin: 20px;
+			border-radius: 10px;
+			background-color: #fff;
+			box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+			transition: transform 0.2s;
+			cursor: pointer;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.box:hover {
+			transform: translateY(-10px);
+		}
+		.box span {
+			font-size: 24px;
+			font-weight: bold;
+			color: #333;
+			text-align: center;
+			transition: all 0.2s;
+			position: relative;
+			top: 0;
+			left: 0;
+			opacity: 0;
+			z-index: -1;
+		}
+		.box:hover span {
+			top: -30px;
+			opacity: 1;
+			z-index: 1;
+		}
+
+
+        .profession {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            color: #333;
+          }
+	</style>
+</head>
+<body>
+	<div class="prompt">
+		<h1> Which of the following best describes your profession?</h1>
+	</div>
+	
+
+	<div class="container">
+		<div class="box" onclick="extract_input_value(this)">
+            <p class="profession">Engineering</p>
+        </div>
+		<div class="box" onclick="extract_input_value(this)">
+			<p class="profession">Medicine</p>
+		</div>
+		<div class="box" onclick="extract_input_value(this)">
+			<p class="profession">Finance</p>
+		</div>
+		<div class="box" onclick="extract_input_value(this)">
+			<p class="profession">Law</p>
+		</div>
+	</div>
+
+
+
+    <script src="/eel.js"></script>
+    <script>
+        function extract_input_value(box) {
+            var input_value = box.querySelector('p').innerText;
+            eel.button_clicked(input_value);
+			window.location.href = "./guestProfession.html";
+        }
+
+    </script>
+
+
+
+</body>
+</html>

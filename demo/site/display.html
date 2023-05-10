@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Convo-Sense</title>
+	<style>
+		/* General styles */
+		* {
+			box-sizing: border-box;
+		}
+
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		}
+
+		/* Set up the layout */
+		.container {
+			display: flex;
+			height: 80vh; /* Reduced height to 80% */
+			width: 100vw;
+			overflow: hidden;
+		}
+
+		.left-box, .right-box {
+			flex: 1;
+			padding: 40px;
+		}
+
+		/* Customize the left box */
+		.left-box {
+			background-color: #f7f7f7;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			gap: 20px;
+		}
+
+		.left-box p {
+			font-size: 36px;
+			font-weight: bold;
+			text-align: center;
+			color: #333;
+			margin: 0;
+		}
+
+		/* Customize the right box */
+		.right-box {
+			background-color: #eee;
+			position: relative;
+			overflow: hidden; /* Hide any parts of the image that may overflow the container */
+		}
+
+		.right-box img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			padding: 5%;
+			object-fit: contain; /* Add this property */
+		}
+
+		/* Input container */
+		.input-container {
+			padding: 40px;
+			text-align: center;
+		}
+
+		.input-container #input_text {
+			font-size: 24px;
+			font-weight: bold;
+			color: #333;
+		}
+
+		button.reset-button {
+			font-size: 16px;
+			padding: 10px 20px;
+			background-color: #3498db;
+			color: #fff;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			transition: background-color 0.3s;
+			display: block;
+			margin: 0 auto;
+		}
+
+		button.reset-button:hover {
+			background-color: #2980b9;
+		}
+
+	</style>
+
+	<script type="text/javascript" src="./eel.js"></script>
+
+	<script type="text/javascript">
+
+		document.addEventListener("DOMContentLoaded", function () {
+			eel.displayReady(); // Notify Python that the JavaScript is ready
+		});
+
+		eel.expose(updateImage);
+		function updateImage(imageSrc) {
+			document.getElementById('my-image').src = imageSrc;
+
+		}
+
+		eel.expose(updateText);
+		function updateText(text) {
+			document.getElementById('my-text').innerHTML = text;
+		}
+
+		eel.expose(updateUserProfession);
+		function updateUserProfession(text) {
+			document.getElementById('my_profession').innerHTML = text;
+		}
+
+		eel.expose(updateInputText);
+		function updateInputText(text) {
+			document.getElementById('input_text').innerHTML = text;
+		}
+	</script>
+</head>
+
+
+<body onload="onPageLoad()">
+
+<!-- This is the main container -->
+<div class="container">
+	<!-- This is the left text box -->
+	<div class="left-box">
+		<p id="my_profession">This is User Profession</p>
+		<p id="my-text">Text goes here</p>
+	</div>
+
+	<!-- This is the right image box -->
+	<div class="right-box">
+		<img id="my-image" src="./wall1.jpg" alt="Placeholder Image">
+	</div>
+</div>
+
+<!-- This is the input container -->
+<div class="input-container">
+	<p id="input_text">Input Text:</p>
+</div>
+
+<button class="reset-button" onclick="resetSelection()">Reset</button>
+
+<script>
+	function resetSelection() {
+		// Redirect to userSelection.html
+		eel.reset_selection();
+		window.location.href = './userProfession.html';
+	}
+</script>
+
+</body>
+</html>
