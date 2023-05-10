@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Loading Screen</title>
+	<style>
+		/*body {*/
+		/*	background-image: url('./wall2.jpg');*/
+		/*	background-size: cover;*/
+		/*	margin: 0;*/
+		/*	padding: 0;*/
+		/*}*/
+		/*.loader-container {*/
+		/*	position: absolute;*/
+        /*    margin-top: 4%;*/
+		/*	top: 60%;*/
+		/*	left: 50%;*/
+		/*	transform: translate(-50%, -50%);*/
+		/*	display: flex;*/
+		/*	flex-direction: column;*/
+		/*	align-items: center;*/
+		/*	justify-content: center;*/
+		/*	width: 200px;*/
+		/*	height: 200px;*/
+		/*	z-index: 1;*/
+		/*}*/
+		.loader {
+			border: 10px solid #f3f3f3;
+			border-top: 10px solid rgb(10, 10, 50);
+			border-radius: 50%;
+			width: 40px;
+			height: 40px;
+			animation: spin 2s linear infinite;
+			z-index: 1;
+		}
+		@keyframes spin {
+			0% { transform: rotate(0deg); }
+			100% { transform: rotate(360deg); }
+		}
+
+		/* Update the h1 CSS */
+		h1 {
+			color: #ffffff;
+			font-family: Arial, sans-serif;
+			font-size: 48px;
+			text-align: center;
+			margin-bottom: 20px; /* Add space between the text and the loader */
+			animation-name: example;
+			animation-duration: 3s;
+			animation-iteration-count: infinite;
+			z-index: 1;
+		}
+
+		/* Update the loader-container CSS */
+		.loader-container {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			width: 200px;
+			height: 200px;
+		}
+		.center-container {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			z-index: 1
+		}
+
+          @keyframes example {
+            0% {
+              color: #ffffff;
+              text-shadow: none;
+            }
+            50% {
+				color: #ffffff;
+              text-shadow: 0 0 10px rgb(60, 10, 60);
+            }
+            100% {
+              color: #ffffff;
+              text-shadow: none;
+            }
+          }
+
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		svg {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			box-sizing: border-box;
+			display: block;
+			background-color:#eb34bd ;
+			background: linear-gradient(to bottom, rgb(10, 10, 50) 50%,rgb(60, 10, 60) 80%);
+		}
+	</style>
+</head>
+<body>
+	<!-- Your website content here -->
+
+	<div class="center-container">
+		<h1>Loading Convo Sense</h1>
+		<div class="loader-container">
+			<div class="loader"></div>
+		</div>
+	</div>
+
+	<svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+		 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100%" height="100%" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice">
+		<defs>
+			<linearGradient id="bg">
+				<stop offset="0%" style="stop-color:rgba(130, 158, 249, 0.06)"></stop>
+				<stop offset="50%" style="stop-color:rgba(235, 52, 189, 0.6)"></stop>
+				<stop offset="100%" style="stop-color:rgba(235, 235, 52, 0.2)"></stop>
+			</linearGradient>
+			<path id="wave" fill="url(#bg)" d="M-363.852,502.589c0,0,236.988-41.997,505.475,0
+	s371.981,38.998,575.971,0s293.985-39.278,505.474,5.859s493.475,48.368,716.963-4.995v560.106H-363.852V502.589z" />
+		</defs>
+		<g>
+			<use xlink:href='#wave' opacity=".3">
+				<animateTransform
+						attributeName="transform"
+						attributeType="XML"
+						type="translate"
+						dur="10s"
+						calcMode="spline"
+						values="270 230; -334 180; 270 230"
+						keyTimes="0; .5; 1"
+						keySplines="0.42, 0, 0.58, 1.0;0.42, 0, 0.58, 1.0"
+						repeatCount="indefinite" />
+			</use>
+			<use xlink:href='#wave' opacity=".6">
+				<animateTransform
+						attributeName="transform"
+						attributeType="XML"
+						type="translate"
+						dur="8s"
+						calcMode="spline"
+						values="-270 230;243 220;-270 230"
+						keyTimes="0; .6; 1"
+						keySplines="0.42, 0, 0.58, 1.0;0.42, 0, 0.58, 1.0"
+						repeatCount="indefinite" />
+			</use>
+			<use xlink:href='#wave' opacty=".9">
+				<animateTransform
+						attributeName="transform"
+						attributeType="XML"
+						type="translate"
+						dur="6s"
+						calcMode="spline"
+						values="0 230;-140 200;0 230"
+						keyTimes="0; .4; 1"
+						keySplines="0.42, 0, 0.58, 1.0;0.42, 0, 0.58, 1.0"
+						repeatCount="indefinite" />
+			</use>
+		</g>
+	</svg>
+
+    <script>
+		setTimeout(function () {
+			window.location.href = "./userProfession.html";
+		}, 3000);
+	</script>
+</body>
+</html>
